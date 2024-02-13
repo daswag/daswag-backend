@@ -15,16 +15,8 @@ CARGO_OPTS=${*:-""}
 # Find all directories that contain a Cargo.toml file and have a [workspace] section in the file
 WORKSPACES=$(find . -type f -name Cargo.toml -exec grep -q "\[workspace\]" {} \; -print | xargs -n1 dirname | sort | uniq)
 
-# Exclude test directory
-TOP_WORKSPACES=()
-for workspace in $WORKSPACES; do
-    if [[ ! "$workspace" =~ "/ui_test_envs/" ]]; then
-        TOP_WORKSPACES+=("$workspace")
-    fi
-done
-
 # Iterate over each workspace and run `cargo check`
-for workspace in "${TOP_WORKSPACES[@]}"; do
+for workspace in "${WORKSPACES[@]}"; do
     echo "Running 'cargo $CARGO_CMD $CARGO_OPTS' in workspace: $workspace"
     (cd "$workspace" && cargo $CARGO_CMD $CARGO_OPTS)
 done

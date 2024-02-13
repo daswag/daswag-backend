@@ -1,11 +1,21 @@
 [package]
 name = "backend-authentication"
 version = "0.1.0"
-description = ""
-keywords = ["daswag"]
+description = "Authentication service"
+keywords = ["daswag", "game"]
 edition.workspace = true
 repository.workspace = true
 license.workspace = true
 readme = "README.md"
+
+[build-dependencies]
+vergen = { version = "8.0.0", features = ["build", "git", "gitcl"] }
+
+[features]
+# Enable additional debug assertions to ensure correctness
+# Some of these assertions can be computationally expensive,
+# that's why they are hidden behind a feature flag (i.e. not enabled)
+# by default in the builds that we distribute to users.
+debug_assertions = []
 
 [dependencies]

@@ -61,8 +61,13 @@ Desktop.ini
 ######################
 # Rust
 ######################
-target/
+/target
 !Cargo.toml
+vendor
+.cargo
+*.snap
+trace-*.json
+/.cache/
 
 ######################
 # CDK
@@ -85,7 +90,6 @@ __pycache__
 
 *.js
 *.js.map
-!backend-authentication/cdk/jest.config.js
 *.d.ts
 node_modules
 dist
@@ -106,3 +110,7 @@ pids
 *.seed
 *.pid.lock
 .nyc_output
+flamegraph.svg
+
+## Specific
+!backend-authentication/cdk/jest.config.js
