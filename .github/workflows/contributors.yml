@@ -1,4 +1,4 @@
-name: "Check CONTRIBUTORS.md"
+name: Check CONTRIBUTORS
 
 on:
   pull_request:

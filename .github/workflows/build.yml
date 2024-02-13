@@ -1,4 +1,4 @@
-name: Setup, Build & Test
+name: Build
 on:
   workflow_call:
     inputs:
